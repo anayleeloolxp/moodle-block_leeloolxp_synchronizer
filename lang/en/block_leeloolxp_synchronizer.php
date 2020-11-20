@@ -23,6 +23,6 @@
  */
 
 $string['pluginname'] = 'Leeloo LXP Synchronizer';
-$string['leeloolxp_licensekey_block'] = 'License ID';
-$string['leeloolxp_licensekey_block_desc'] = 'The License ID of Leeloo LXP Synchronizer';
+$string['licensekey'] = 'Leeloo LXP License ID';
+$string['licensekey_desc'] = '';
 

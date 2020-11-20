@@ -67,7 +67,7 @@ class block_leeloolxp_synchronizer extends block_base {
         global $CFG;
         if ( $this->page->pagetype == 'course-view-topics' ) {
             $liacencekey = get_config( 'block_leeloolxp_synchronizer' )
-            ->leeloolxp_block_synchronizer_licensekey;
+            ->licensekey;
             $courseid  = $_REQUEST['id'];
             $alreadysync = false;
             $baseurl = $CFG->wwwroot;

@@ -23,9 +23,9 @@
  */
 defined( 'MOODLE_INTERNAL' ) || die;
 if ( $ADMIN->fulltree ) {
-    $name = 'block_leeloolxp_synchronizer/leeloolxp_block_synchronizer_licensekey';
-    $title = get_string( 'leeloolxp_licensekey_synchronizer', 'block_leeloolxp_synchronizer' );
-    $description = get_string( 'leeloolxp_licensekey_synchronizer_desc', 'block_leeloolxp_synchronizer' );
+    $name = 'block_leeloolxp_synchronizer/licensekey';
+    $title = get_string( 'licensekey', 'block_leeloolxp_synchronizer' );
+    $description = get_string( 'licensekey_desc', 'block_leeloolxp_synchronizer' );
     $setting = new admin_setting_configtext( $name, $title, $description, 0, PARAM_TEXT );
     $settings->add( $setting );
 }
