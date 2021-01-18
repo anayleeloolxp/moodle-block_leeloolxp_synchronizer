@@ -28,3 +28,6 @@ $plugin->requires  = 2019111225;
 // Requires this Moodle version
 $plugin->component = 'block_leeloolxp_synchronizer';
 // Full name of the plugin ( used for diagnostics )
+$plugin->dependencies = array(
+    'tool_leeloolxp_sync' => 2019062701
+);
