@@ -201,7 +201,9 @@ margin: 10px 0;
 
                 $html .= "<a href='#' onclick='single_activity(".$courseid.");'>Sync Single Activity</a><br>";
 
-                $html .= "<a href='#' onclick='sync_categories(".$courseid.");'>Sync Categories</a>";
+                $html .= "<a href='#' onclick='sync_categories(".$courseid.");'>Sync Categories</a><br>";
+
+                $html .= "<a href='".$baseurl."/admin/tool/leeloolxp_sync/index.php?action=add&courseid=".$courseid."'>Synchronizer panel</a>";
                 
                 $html .= '<script> function show_popup() {
 
