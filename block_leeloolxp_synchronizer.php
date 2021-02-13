@@ -22,6 +22,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+
+defined('MOODLE_INTERNAL') || die;
+
 require_once($CFG->dirroot . '/course/lib.php');
 
 /**
@@ -70,55 +73,55 @@ class block_leeloolxp_synchronizer extends block_base {
 
                 array('courseid' => $courseid));
 
-            ?><style type="text/css">
-                        .dialog-modal {
-align-self: center;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 9999;
-background: rgba(0,0,0,0.7);
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.dialog-modal-inn {
-background: #fff;
-max-width: 750px;
-padding: 50px;
-text-align: center;
-width: 100%;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-}
-.dialog-modal-inn div#dialog {
-font-size: 17px;
-}
-.dialog-modal-inn h4 {
-font-weight: 400;
-margin: 0 0 25px;
-font-size: 25px;
-}
-.sure-btn {
-margin: 50px 0 0;
-}
-.dialog-modal-inn .sure-btn button {
-font-size: 20px;
-padding: .5rem 3rem;
-color: #fff;
-background-color: #74cfd0;
-border: none;
-display: inline-block;
-text-decoration: none;
-outline: 0;
-box-shadow: none;
-margin: 10px 0;
-}
-                    </style> <?php
+            echo '<style type="text/css">
+                    .dialog-modal {
+                        align-self: center;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 9999;
+                        background: rgba(0,0,0,0.7);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .dialog-modal-inn {
+                        background: #fff;
+                        max-width: 750px;
+                        padding: 50px;
+                        text-align: center;
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    .dialog-modal-inn div#dialog {
+                        font-size: 17px;
+                    }
+                    .dialog-modal-inn h4 {
+                        font-weight: 400;
+                        margin: 0 0 25px;
+                        font-size: 25px;
+                    }
+                    .sure-btn {
+                        margin: 50px 0 0;
+                    }
+                    .dialog-modal-inn .sure-btn button {
+                        font-size: 20px;
+                        padding: .5rem 3rem;
+                        color: #fff;
+                        background-color: #74cfd0;
+                        border: none;
+                        display: inline-block;
+                        text-decoration: none;
+                        outline: 0;
+                        box-shadow: none;
+                        margin: 10px 0;
+                    }
+                    </style>';
 
             if (empty($coursesyncedquery)) {
                 $html = '<div id="dialog-modal-course-synchronizer" class="dialog-modal dialog-modal-course " style="display: none;">
