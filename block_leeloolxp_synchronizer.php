@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once($CFG->dirroot.'/course/lib.php');
+require_once($CFG->dirroot . '/course/lib.php');
 
 /**
 
@@ -31,12 +31,11 @@ require_once($CFG->dirroot.'/course/lib.php');
  *
 
  * @package    block_leeloolxp_synchronizer
- * 
+ *
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_leeloolxp_synchronizer extends block_base {
 
-   
     protected $timestart = null;
 
     /**
@@ -47,8 +46,9 @@ class block_leeloolxp_synchronizer extends block_base {
         $this->title = get_string('pluginname', 'block_leeloolxp_synchronizer');
     }
 
-  
-
+    /**
+     * Get content of the block
+     */
     function get_content() {
         if ($this->content !== NULL) {
             return $this->content;
@@ -59,27 +59,22 @@ class block_leeloolxp_synchronizer extends block_base {
             return $this->content;
         }
 
-            global $PAGE;
+        global $PAGE;
 
-            global $DB;
+        global $DB;
 
-            global $CFG;
+        global $CFG;
 
-            if($PAGE->pagetype=='course-view-topics') {
+        if ($PAGE->pagetype == 'course-view-topics') {
+            $courseid = $_REQUEST['id'];
 
-                $liacencekey = get_config('block_leeloolxp_synchronizer')->leeloolxp_block_synchronizer_licensekey;
+            $baseurl = $CFG->wwwroot;
 
-                $courseid  = $_REQUEST['id'];
-
-                $alreadysync = false;
-
-                $baseurl = $CFG->wwwroot;
-
-                $coursesyncedquery = $DB->get_records('tool_leeloolxp_sync',
+            $coursesyncedquery = $DB->get_records('tool_leeloolxp_sync',
 
                 array('courseid' => $courseid));
 
-                ?><style type="text/css">
+            ?><style type="text/css">
                         .dialog-modal {
 align-self: center;
 position: fixed;
@@ -129,9 +124,8 @@ margin: 10px 0;
 }
                     </style> <?php
 
-                if (empty($coursesyncedquery)) {
-
-                    $html = '<div id="dialog-modal-course-synchronizer" class="dialog-modal dialog-modal-course " style="display: none;">
+            if (empty($coursesyncedquery)) {
+                $html = '<div id="dialog-modal-course-synchronizer" class="dialog-modal dialog-modal-course " style="display: none;">
 
                             <div class="dialog-modal-inn">
 
@@ -141,7 +135,7 @@ margin: 10px 0;
 
                                     <div class="sure-btn">
 
-                                        <button data_id = "" data_name="" onclick="yescourseunsync('.$courseid.');" 
+                                        <button data_id = "" data_name="" onclick="yescourseunsync(' . $courseid . ');"
 
                                         class="btn btn_yes_courseunsync" >Yes, I’m sure</button>
 
@@ -149,17 +143,16 @@ margin: 10px 0;
 
                                     </div>
 
-                                    
+
 
                                 </div>
 
                             </div>
 
                         </div>';
+            } else {
 
-                } else {
-
-                    $html = '<div id="dialog-modal-course-synchronizer" class="dialog-modal dialog-modal-course " style="display: none;">
+                $html = '<div id="dialog-modal-course-synchronizer" class="dialog-modal dialog-modal-course " style="display: none;">
 
                             <div class="dialog-modal-inn">
 
@@ -169,7 +162,7 @@ margin: 10px 0;
 
                                     <div class="sure-btn">
 
-                                        <button data_id = "" data_name="" onclick="resync('.$courseid.');" 
+                                        <button data_id = "" data_name="" onclick="resync(' . $courseid . ');"
 
                                         class="btn btn_yes_courseunsync" >Yes, I’m sure</button>
 
@@ -177,41 +170,38 @@ margin: 10px 0;
 
                                     </div>
 
-                                   
+
 
                                 </div>
 
                             </div>
 
                         </div>';
+            }
 
-                }
+            if (isset($_REQUEST['sync'])) {
+                $html .= '<p style="color:green;">Sychronizationed successfully.</p>';
+            }
 
-                if(isset($_REQUEST['sync'])) {
+            $html .= "<h2>Synchronizer To leeloolxp</h2>";
 
-                    $html .= '<p style="color:green;">Sychronizationed successfully.</p>';    
+            $html .= "<hr>";
 
-                }
+            $html .= "<a href='#' onclick='show_popup();'>Sync Course </a><br>";
 
-                $html .= "<h2>Synchronizer To leeloolxp</h2>";
+            $html .= "<a href='#' onclick='single_activity(" . $courseid . ");'>Sync Single Activity</a><br>";
 
-                $html .= "<hr>";
+            $html .= "<a href='#' onclick='sync_categories(" . $courseid . ");'>Sync Categories</a><br>";
 
-                $html .= "<a href='#' onclick='show_popup();'>Sync Course </a><br>";
+            $html .= "<a href='" . $baseurl . "/admin/tool/leeloolxp_sync/index.php'>Synchronizer panel</a>";
 
-                $html .= "<a href='#' onclick='single_activity(".$courseid.");'>Sync Single Activity</a><br>";
-
-                $html .= "<a href='#' onclick='sync_categories(".$courseid.");'>Sync Categories</a><br>";
-
-                $html .= "<a href='".$baseurl."/admin/tool/leeloolxp_sync/index.php'>Synchronizer panel</a>";
-                
-                $html .= '<script> function show_popup() {
+            $html .= '<script> function show_popup() {
 
                         document.getElementById("dialog-modal-course-synchronizer").style.display = "block";
 
-                    } 
+                    }
 
-                
+
 
                 function course_cls_popup() {
 
@@ -220,7 +210,7 @@ margin: 10px 0;
                 }
                 function yescourseunsync(courseid) {
 
-                    var url = "'.$baseurl.'/admin/tool/leeloolxp_sync/?action=coursesyncfrmblock&redirect=couseview&courseid="+courseid;
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?action=coursesyncfrmblock&redirect=couseview&courseid="+courseid;
 
                     window.location = url;
 
@@ -228,9 +218,9 @@ margin: 10px 0;
 
                 function resync(courseid) {
 
-                    
 
-                    var url = "'.$baseurl.'/admin/tool/leeloolxp_sync/?resync=1&redirect=courseview&courseid_resync="+courseid;
+
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?resync=1&redirect=courseview&courseid_resync="+courseid;
 
                     window.location = url;
 
@@ -238,34 +228,32 @@ margin: 10px 0;
 
                 function single_activity(courseid) {
 
-                    var url = "'.$baseurl.'/admin/tool/leeloolxp_sync/?action=add&redirect=couseview&courseid="+courseid;
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?action=add&redirect=couseview&courseid="+courseid;
 
                     window.location = url;
 
                 }
 
                 function sync_categories(courseid) {
-                    var url = "'.$baseurl.'/admin/tool/leeloolxp_sync/?syncategory=1&redirect=couseview&courseid="+courseid;
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?syncategory=1&redirect=couseview&courseid="+courseid;
                     window.location = url;
                 }
 
                 </script>';
+        }
 
-            }
+        $this->content->text = $html;
 
-            $this->content->text = $html;
+        $this->content->footer = '';
 
-            $this->content->footer = '';
-
-            return $this->content;
+        return $this->content;
     }
 
-   
-
+    /**
+     * Define if block has config
+     */
     function has_config() {
 
         return true;
-
     }
-
 }
