@@ -41,7 +41,7 @@ class block_leeloolxp_synchronizer extends block_base {
     /**
      * Initialises the block
      */
-    function init() {
+    public function init() {
         // Commented dynamic call for now.
         $this->title = get_string('pluginname', 'block_leeloolxp_synchronizer');
     }
@@ -49,8 +49,8 @@ class block_leeloolxp_synchronizer extends block_base {
     /**
      * Get content of the block
      */
-    function get_content() {
-        if ($this->content !== NULL) {
+    public function get_content() {
+        if ($this->content !== null) {
             return $this->content;
         }
 
@@ -59,13 +59,11 @@ class block_leeloolxp_synchronizer extends block_base {
             return $this->content;
         }
 
-        global $PAGE;
-
         global $DB;
 
         global $CFG;
 
-        if ($PAGE->pagetype == 'course-view-topics') {
+        if ($this->page->pagetype == 'course-view-topics') {
             $courseid = $_REQUEST['id'];
 
             $baseurl = $CFG->wwwroot;
@@ -252,7 +250,7 @@ margin: 10px 0;
     /**
      * Define if block has config
      */
-    function has_config() {
+    public function has_config() {
 
         return true;
     }
