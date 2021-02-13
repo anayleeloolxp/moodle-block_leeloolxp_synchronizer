@@ -36,8 +36,6 @@ require_once($CFG->dirroot . '/course/lib.php');
  */
 class block_leeloolxp_synchronizer extends block_base {
 
-    protected $timestart = null;
-
     /**
      * Initialises the block
      */
