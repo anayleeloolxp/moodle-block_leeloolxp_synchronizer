@@ -130,15 +130,15 @@ class block_leeloolxp_synchronizer extends block_base {
 
                                 <div id="dialog" >
 
-                                    <h4>Are you sure you want to sync all the activities and resources of this course to Leeloo LXP?</h4>
+                                    <h4>'.get_string('are_you_sure_sunc_all', 'block_leeloolxp_synchronizer').'</h4>
 
                                     <div class="sure-btn">
 
                                         <button data_id = "" data_name="" onclick="yescourseunsync(' . $courseid . ');"
 
-                                        class="btn btn_yes_courseunsync" >Yes, I’m sure</button>
+                                        class="btn btn_yes_courseunsync" >'.get_string('yes_sure', 'block_leeloolxp_synchronizer').'</button>
 
-                                        <button  onclick="course_cls_popup();" class="btn course_cls_popup" >Cancel</button>
+                                        <button  onclick="course_cls_popup();" class="btn course_cls_popup" >'.get_string('cancel', 'block_leeloolxp_synchronizer').'</button>
 
                                     </div>
 
@@ -157,15 +157,15 @@ class block_leeloolxp_synchronizer extends block_base {
 
                                 <div id="dialog" >
 
-                                    <h4>Are you sure you want to RE-sync all the activities and resources of this course to Leeloo LXP?</h4>
+                                    <h4>'.get_string('are_you_sure_re_sunc_all', 'block_leeloolxp_synchronizer').'</h4>
 
                                     <div class="sure-btn">
 
                                         <button data_id = "" data_name="" onclick="resync(' . $courseid . ');"
 
-                                        class="btn btn_yes_courseunsync" >Yes, I’m sure</button>
+                                        class="btn btn_yes_courseunsync" >'.get_string('yes_sure', 'block_leeloolxp_synchronizer').'</button>
 
-                                        <button  onclick="course_cls_popup();" class="btn course_cls_popup" >Cancel</button>
+                                        <button  onclick="course_cls_popup();" class="btn course_cls_popup" >'.get_string('cancel', 'block_leeloolxp_synchronizer').'</button>
 
                                     </div>
 
@@ -179,20 +179,20 @@ class block_leeloolxp_synchronizer extends block_base {
             }
 
             if (isset($_REQUEST['sync'])) {
-                $html .= '<p style="color:green;">Sychronizationed successfully.</p>';
+                $html .= '<p style="color:green;">'.get_string('sync_done', 'block_leeloolxp_synchronizer').'</p>';
             }
 
-            $html .= "<h2>Synchronizer To leeloolxp</h2>";
+            $html .= "<h2>".get_string('sync_title', 'block_leeloolxp_synchronizer')."</h2>";
 
             $html .= "<hr>";
 
-            $html .= "<a href='#' onclick='show_popup();'>Sync Course </a><br>";
+            $html .= "<a href='#' onclick='show_popup();'>".get_string('sync_course', 'block_leeloolxp_synchronizer')."</a><br>";
 
-            $html .= "<a href='#' onclick='single_activity(" . $courseid . ");'>Sync Single Activity</a><br>";
+            $html .= "<a href='#' onclick='single_activity(" . $courseid . ");'>".get_string('sync_activity', 'block_leeloolxp_synchronizer')."</a><br>";
 
-            $html .= "<a href='#' onclick='sync_categories(" . $courseid . ");'>Sync Categories</a><br>";
+            $html .= "<a href='#' onclick='sync_categories(" . $courseid . ");'>".get_string('sync_cat', 'block_leeloolxp_synchronizer')."</a><br>";
 
-            $html .= "<a href='" . $baseurl . "/admin/tool/leeloolxp_sync/index.php'>Synchronizer panel</a>";
+            $html .= "<a href='" . $baseurl . "/admin/tool/leeloolxp_sync/index.php'>".get_string('sync_panel', 'block_leeloolxp_synchronizer')."</a>";
 
             $html .= '<script> function show_popup() {
 

@@ -25,4 +25,13 @@
 $string['pluginname'] = 'Leeloo LXP Synchronizer';
 $string['licensekey'] = 'Leeloo LXP License ID';
 $string['licensekey_desc'] = '';
-
+$string['are_you_sure_sunc_all'] = 'Are you sure you want to sync all the activities and resources of this course to Leeloo LXP?';
+$string['are_you_sure_re_sunc_all'] = 'Are you sure you want to RE-sync all the activities and resources of this course to Leeloo LXP?';
+$string['yes_sure'] = 'Yes, I’m sure';
+$string['cancel'] = 'Cancel';
+$string['sync_done'] = 'Sychronizationed successfully.';
+$string['sync_title'] = 'Synchronizer To leeloolxp';
+$string['sync_course'] = 'Sync Course';
+$string['sync_activity'] = 'Sync Single Activity';
+$string['sync_cat'] = 'Sync Categories';
+$string['sync_panel'] = 'Synchronizer panel';
