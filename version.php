@@ -31,3 +31,5 @@ $plugin->component = 'block_leeloolxp_synchronizer';
 $plugin->dependencies = array(
     'tool_leeloolxp_sync' => 2019062701
 );
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.0.0';
