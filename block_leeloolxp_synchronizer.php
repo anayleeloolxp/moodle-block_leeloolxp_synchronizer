@@ -63,12 +63,26 @@ class block_leeloolxp_synchronizer extends block_base {
 
         global $CFG;
 
+        global $USER;
+
         $this->content = new stdClass();
 
         $html = '';
 
         if ($this->page->pagetype == 'course-view-topics') {
             $courseid = $_REQUEST['id'];
+
+            $cContext = context_course::instance($courseid);
+
+            $isStudent = !has_capability('moodle/course:update', $cContext) ? 'student' : 'admin';
+
+            if ($isStudent == 'student') {
+                $this->content->text = get_string('nopremission', 'block_leeloolxp_synchronizer');
+
+                $this->content->footer = '';
+
+                return $this->content;
+            }
 
             $baseurl = $CFG->wwwroot;
 
