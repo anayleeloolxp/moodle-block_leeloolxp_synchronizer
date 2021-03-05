@@ -72,11 +72,11 @@ class block_leeloolxp_synchronizer extends block_base {
         if ($this->page->pagetype == 'course-view-topics') {
             $courseid = optional_param('id', null, PARAM_RAW);
 
-            $cContext = context_course::instance($courseid);
+            $ccontext = context_course::instance($courseid);
 
-            $isStudent = !has_capability('moodle/course:update', $cContext) ? 'student' : 'admin';
+            $isstudent = !has_capability('moodle/course:update', $ccontext) ? 'student' : 'admin';
 
-            if ($isStudent == 'student') {
+            if ($isstudent == 'student') {
                 $this->content->text = get_string('nopremission', 'block_leeloolxp_synchronizer');
 
                 $this->content->footer = '';
