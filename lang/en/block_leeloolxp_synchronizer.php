@@ -36,3 +36,4 @@ $string['sync_activity'] = 'Sync Single Activity';
 $string['sync_cat'] = 'Sync Categories';
 $string['sync_panel'] = 'Synchronizer panel';
 $string['nopremission'] = 'You do not have the permission to access this block.';
+$string['leeloolxp_synchronizer:addinstance'] = '';
