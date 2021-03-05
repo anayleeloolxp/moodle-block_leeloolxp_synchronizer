@@ -70,7 +70,7 @@ class block_leeloolxp_synchronizer extends block_base {
         $html = '';
 
         if ($this->page->pagetype == 'course-view-topics') {
-            $courseid = $_REQUEST['id'];
+            $courseid = optional_param('id', null, PARAM_RAW);
 
             $cContext = context_course::instance($courseid);
 
@@ -195,7 +195,8 @@ class block_leeloolxp_synchronizer extends block_base {
                         </div>';
             }
 
-            if (isset($_REQUEST['sync'])) {
+            $reqsync = optional_param('sync', null, PARAM_RAW);
+            if (isset($reqsync)) {
                 $html .= '<p style="color:green;">' . get_string('sync_done', 'block_leeloolxp_synchronizer') . '</p>';
             }
 
