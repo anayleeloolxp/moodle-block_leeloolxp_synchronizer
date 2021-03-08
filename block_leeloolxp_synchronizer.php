@@ -59,6 +59,26 @@ class block_leeloolxp_synchronizer extends block_base {
             return $this->content;
         }
 
+        $configsetting = get_config('block_leeloolxp_synchronizer');
+        $liacnsekey = $configsetting->licensekey;
+        $postdata = array('license_key' => $liacnsekey);
+        $url = 'https://leeloolxp.com/api_moodle.php/?action=page_info';
+        $curl = new curl;
+        $options = array(
+            'CURLOPT_RETURNTRANSFER' => true,
+            'CURLOPT_HEADER' => false,
+            'CURLOPT_POST' => count($postdata),
+        );
+        if (!$output = $curl->post($url, $postdata, $options)) {
+            return true;
+        }
+        $infoteamnio = json_decode($output);
+        if ($infoteamnio->status != 'false') {
+            $teamniourl = $infoteamnio->data->install_url;
+        } else {
+            return true;
+        }
+
         global $DB;
 
         global $CFG;
