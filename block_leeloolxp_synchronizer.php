@@ -247,7 +247,7 @@ class block_leeloolxp_synchronizer extends block_base {
                 }
                 function yescourseunsync(courseid) {
 
-                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?action=coursesyncfrmblock&redirect=couseview&courseid="+courseid;
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?action=coursesyncfrmblock&redirect=courseview&courseid="+courseid;
 
                     window.location = url;
 
@@ -265,14 +265,14 @@ class block_leeloolxp_synchronizer extends block_base {
 
                 function single_activity(courseid) {
 
-                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?action=add&redirect=couseview&courseid="+courseid;
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?action=add&redirect=courseview&courseid="+courseid;
 
                     window.location = url;
 
                 }
 
                 function sync_categories(courseid) {
-                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?syncategory=1&redirect=couseview&courseid="+courseid;
+                    var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?syncategory=1&redirect=courseview&courseid="+courseid;
                     window.location = url;
                 }
 

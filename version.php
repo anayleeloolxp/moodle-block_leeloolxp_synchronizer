@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->version = 2021030902;
+$plugin->version = 2021030903;
 // The current plugin version ( Date: YYYYMMDDXX )
 $plugin->requires = 2019111225;
 // Requires this Moodle version
@@ -32,4 +32,4 @@ $plugin->dependencies = array(
     'tool_leeloolxp_sync' => 2019062701,
 );
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.0.2';
+$plugin->release = '1.0.3';
