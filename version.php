@@ -21,15 +21,15 @@
  * @copyright  2020 leelolxp.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined( 'MOODLE_INTERNAL' ) || die();
-$plugin->version   = 2021030901;
+defined('MOODLE_INTERNAL') || die();
+$plugin->version = 2021030902;
 // The current plugin version ( Date: YYYYMMDDXX )
-$plugin->requires  = 2019111225;
+$plugin->requires = 2019111225;
 // Requires this Moodle version
 $plugin->component = 'block_leeloolxp_synchronizer';
 // Full name of the plugin ( used for diagnostics )
 $plugin->dependencies = array(
-    'tool_leeloolxp_sync' => 2019062701
+    'tool_leeloolxp_sync' => 2019062701,
 );
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.0.1';
+$plugin->release = '1.0.2';

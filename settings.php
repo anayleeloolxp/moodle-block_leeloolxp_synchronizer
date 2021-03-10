@@ -21,11 +21,11 @@
  * @copyright  2020 leelolxp.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined( 'MOODLE_INTERNAL' ) || die;
-if ( $ADMIN->fulltree ) {
+defined('MOODLE_INTERNAL') || die;
+if ($ADMIN->fulltree) {
     $name = 'block_leeloolxp_synchronizer/licensekey';
-    $title = get_string( 'licensekey', 'block_leeloolxp_synchronizer' );
-    $description = get_string( 'licensekey_desc', 'block_leeloolxp_synchronizer' );
-    $setting = new admin_setting_configtext( $name, $title, $description, 0, PARAM_TEXT );
-    $settings->add( $setting );
+    $title = get_string('licensekey', 'block_leeloolxp_synchronizer');
+    $description = get_string('licensekey_desc', 'block_leeloolxp_synchronizer');
+    $setting = new admin_setting_configtext($name, $title, $description, 0, PARAM_TEXT);
+    $settings->add($setting);
 }
