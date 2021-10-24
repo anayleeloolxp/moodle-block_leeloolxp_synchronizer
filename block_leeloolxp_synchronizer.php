@@ -59,6 +59,9 @@ class block_leeloolxp_synchronizer extends block_base {
             return $this->content;
         }
 
+        global $CFG;
+        require_once($CFG->dirroot . '/lib/filelib.php');
+
         $configsetting = get_config('block_leeloolxp_synchronizer');
         $liacnsekey = $configsetting->licensekey;
         $postdata = array('license_key' => $liacnsekey);
