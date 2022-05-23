@@ -109,9 +109,11 @@ class block_leeloolxp_synchronizer extends block_base {
 
             $baseurl = $CFG->wwwroot;
 
-            $coursesyncedquery = $DB->get_records('tool_leeloolxp_sync',
+            $coursesyncedquery = $DB->get_records(
+                'tool_leeloolxp_sync',
 
-                array('courseid' => $courseid));
+                array('courseid' => $courseid)
+            );
 
             $html = '<style type="text/css">
                     .dialog-modal {
