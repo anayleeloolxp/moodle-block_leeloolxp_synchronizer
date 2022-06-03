@@ -92,7 +92,7 @@ class block_leeloolxp_synchronizer extends block_base {
 
         $html = '';
 
-        if ($this->page->pagetype == 'course-view-topics') {
+        if ($this->page->pagetype == 'course-view-topics' || $this->page->pagetype == 'course-view-flexsections') {
             $courseid = optional_param('id', null, PARAM_RAW);
 
             $ccontext = context_course::instance($courseid);
