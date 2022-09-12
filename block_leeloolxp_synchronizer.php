@@ -267,7 +267,8 @@ class block_leeloolxp_synchronizer extends block_base {
                 ' .
 
                     'function sync_categories(courseid) {' .
-                    '   var url = "' . $baseurl . '/admin/tool/leeloolxp_sync/?syncategory=1&redirect=courseview&courseid="+courseid;' .
+                    '   var url = "' . $baseurl .
+                    '/admin/tool/leeloolxp_sync/?syncategory=1&redirect=courseview&courseid="+courseid;' .
                     '   window.location = url;' .
                     '}
                 ' .
